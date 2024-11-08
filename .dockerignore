@@ -1,0 +1,8 @@
+.github/
+.git/
+.gitignore
+Makefile
+pkg/
+Dockerfile
+main
+main_test.go
