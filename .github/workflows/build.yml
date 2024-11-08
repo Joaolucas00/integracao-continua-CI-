@@ -25,4 +25,4 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: joao00/go_lang_cicd:latest,${{ github.sha }}
+          tags: joao00/go_lang_cicd:latest,joao00/go_lang_cicd:${{ github.sha }}
