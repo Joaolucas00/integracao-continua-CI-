@@ -9,23 +9,13 @@ services:
       - 5432:5432
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
-
   app:
-    image: golang:1.22
-    command:
-      - go
-      - run
-      - main.go
-    volumes:
-      - ./:/app
+    build: 
+      context: . # localização do dockerfile
+      dockerfile: Dockerfile # nome do arquivo onde está a imagem
+      target: production # a imagem a ser selecionada
     working_dir: /app
     ports:
       - 8080:8080
     depends_on:
       - postgres
-    environment:
-      - DB_HOST=postgres
-      - DB_USER=root
-      - DB_PASSWORD=root
-      - DB_NAME=root
-      - DB_PORT=5432
